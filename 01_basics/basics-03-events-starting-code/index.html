@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+
+      <!-- v-on is a directive for listening to events -->
+      <!-- functions can also be called as we would in regular javascript -->
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="subtract(5)">Remove 5</button>
+
+      <input type="text" v-model="text" />
+
+      <p v-once>start {{counter}}</p>
+      <p>Result: {{ counter }}</p>
+      <!-- v-on:input listen for input in  an input -->
+      <form action="" v-on:submit.prevent="submit">
+        <input type="text" v-on:input="text" />
+
+        <!-- prevent defualt submit -->
+        <button>submit</button>
+      </form>
+      <p>Text: {{fullName}}</p>
+      <!-- more than one event listner can be added to an element -->
+    </section>
+  </body>
+</html>
