@@ -18,11 +18,24 @@
     </header>
     <section id="user-goals">
       <h2>My course goals</h2>
-      <input type="text" />
-      <button>Add Goal</button>
-      <p>No goals have been added yet - please start adding some!</p>
+      <input type="text" v-model="goalInput" />
+      <button @click="addGoal">Add Goal</button>
+      <!-- v-if; used to check for condition to render element -->
+      <p v-if="goals.length===0">
+        No goals have been added yet - please start adding some!
+      </p>
       <ul>
-        <li>Goal</li>
+        <!-- v-for helps use output repeated content -->
+        <!-- vue reuses dom elements -->
+        <!-- when rendering a list of data we should remember to add the key attributes -->
+        <li v-for="(goal,i) in goals" @click="()=>removeGoal(i)" :key="goal">
+          {{goal}} {{i}}
+
+          <input type="text" @click.stop />
+        </li>
+
+        <!-- v-for can also loop through objects -->
+        <!-- <li v-for="(val,key) of info">{{val}} : {{key}}</li> -->
       </ul>
     </section>
   </body>
